@@ -4,15 +4,15 @@ function moduleProject3() {
 
   function buildNav(links) {
     //  ✨ do your magic here
-    const container1 = document.createElement('nav')
+    const contaner1 = document.createElement('nav')
     links.forEach(link => {
       let a = document.createElement("a");
       a.href = link.href;
       a.title = link.title;
       a.textContent = link.textContent;
-      container1.appendChild(a);
+      contaner1.appendChild(a);
     });
-    return container1;
+    return contaner1;
   }
 
   // ❗ DOM creation using your `buildNav` component (do not change):
@@ -24,38 +24,69 @@ function moduleProject3() {
     { href: 'https://www.example.com/contact', textContent: 'Contact', title: 'Get in touch with us' },
   ]))
 
-  // 👉 TASK 2A - Write a `buildLearnerCard` component that returns a card
+  // 👉 TASK 2A - Write a `buildLearner` component that returns a card
 
+  // function buildLearnerCard(learner, languages) {
+  //   //  ✨ do your magic here
+  //   const card = document.createElement("div");
+  //   card.classList.add("learner-card");
+
+  //   const nameP = document.createElement('p');
+  //   nameP.textContent = learner.fullName;
+
+  //   const idElement = document.createElement("p");
+  //   idElement.textContent = `LearnerID: ${learner.id}`;
+
+  //   const dobP = document.createElement('p');
+  //   dobP.textContent = `Date of Birth: ${learner.dateOfBirth}`;
+    
+  //   const favLangP = document.createElement("p");
+  //   const favLanguage = languages.find(lang => lang.id === learner.favLanguage);
+  //   favLangP.textContent = `Favorite Language: ${favLanguage.name}`;
+
+  //   [nameP, idElement, dobP, favLangP].forEach(p => {
+  //     card.appendChild(p);
+  //   });
+  //   card.addEventListener( "click", evt => {
+  //     document.querySelectorAll(".learner-card").forEach(card => {
+  //       card.classList.remove("active");
+  //     });
+  //     card.classList.add("active");
+  //   });
+
+  //   return card;
+  // }
   function buildLearnerCard(learner, languages) {
-    //  ✨ do your magic here
-    const container2 = document.createElement("div");
-    container2.classList.add("learner-card");
-
+    const card = document.createElement("div");
+    card.classList.add("learner-card");
+  
     const nameP = document.createElement('p');
     nameP.textContent = learner.fullName;
-
+  
     const idElement = document.createElement("p");
-    idElement.textContent = `Learner ID: ${learner.id}`
-
+    idElement.textContent = `Learner ID: ${learner.id}`;
+  
     const dobP = document.createElement('p');
     dobP.textContent = `Date of Birth: ${learner.dateOfBirth}`;
-    
+  
     const favLangP = document.createElement("p");
     const favLanguage = languages.find(lang => lang.id === learner.favLanguage);
-    favLangP.textContent = `Faverite Language: ${favLanguage.name}`;
-
-    [nameP, dobP, favLangP].forEach(p => {
-      container2.appendChild(p);
+    favLangP.textContent = `Favorite Language: ${favLanguage.name}`;
+  
+    [nameP, idElement, dobP, favLangP].forEach(p => {
+      card.appendChild(p);
     });
-    container2.addEventListener( "click", evt => {
+  
+    card.addEventListener("click", evt => {
       document.querySelectorAll(".learner-card").forEach(card => {
-        container2.classList.remove("active");
+        card.classList.remove("active");
       });
-      container2.classList.add("active");
+      card.classList.add("active");
     });
-
-    return container2;
+  
+    return card;
   }
+  
 
   {
     // 👉 TASK 2B - Use the two variables below to make learner Cards, and put them in the DOM
@@ -118,7 +149,8 @@ function moduleProject3() {
 
     let currentYear1 = new Date().getFullYear();
     let copyright1 = document.createElement("div");
-    copyright1.textContent = `${footerData.companyName.toUpperCase()} ${currentYear1}`;
+    copyright1.textContent = `© ${footerData.companyName.toUpperCase()} ${currentYear1}`;
+
 
 
     footer1.appendChild(companyInfoDiv);
@@ -146,7 +178,7 @@ function moduleProject3() {
   document.addEventListener("click", evt => {
     if(evt.target === document.querySelector("section")) {
         const learnersEnd = document.querySelectorAll(".learner-card");
-        learnersEnd.forEach(container1 => container1.classList.remove("active"));
+        learnersEnd.forEach(card => card.classList.remove("active"));
     }
 });
 }
