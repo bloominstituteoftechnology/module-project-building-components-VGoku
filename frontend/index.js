@@ -25,37 +25,7 @@ function moduleProject3() {
   ]))
 
   // 👉 TASK 2A - Write a `buildLearner` component that returns a card
-
-  // function buildLearnerCard(learner, languages) {
   //   //  ✨ do your magic here
-  //   const card = document.createElement("div");
-  //   card.classList.add("learner-card");
-
-  //   const nameP = document.createElement('p');
-  //   nameP.textContent = learner.fullName;
-
-  //   const idElement = document.createElement("p");
-  //   idElement.textContent = `LearnerID: ${learner.id}`;
-
-  //   const dobP = document.createElement('p');
-  //   dobP.textContent = `Date of Birth: ${learner.dateOfBirth}`;
-    
-  //   const favLangP = document.createElement("p");
-  //   const favLanguage = languages.find(lang => lang.id === learner.favLanguage);
-  //   favLangP.textContent = `Favorite Language: ${favLanguage.name}`;
-
-  //   [nameP, idElement, dobP, favLangP].forEach(p => {
-  //     card.appendChild(p);
-  //   });
-  //   card.addEventListener( "click", evt => {
-  //     document.querySelectorAll(".learner-card").forEach(card => {
-  //       card.classList.remove("active");
-  //     });
-  //     card.classList.add("active");
-  //   });
-
-  //   return card;
-  // }
   function buildLearnerCard(learner, languages) {
     const card = document.createElement("div");
     card.classList.add("learner-card");
